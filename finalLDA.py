@@ -1,5 +1,4 @@
 import os
-import time
 # Load libraries
 from pandas import read_csv
 from pandas.plotting import scatter_matrix
@@ -16,9 +15,10 @@ from sklearn.neighbors import KNeighborsClassifier
 from sklearn.discriminant_analysis import LinearDiscriminantAnalysis
 from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
+import time
 
 # Load dataset
-url = "MoldDataset30868.csv"
+url = "Dataset/MoldDataset30868.csv"
 names = ['area', 'major-axis-length', 'minor-axis-length', 'eccentricity', 'filled-area', 'extent', 'perimeter', 'equiv-diameter', 'convex-area', 'solidity', 'class']
 dataset = read_csv(url, names=names)
 
@@ -27,8 +27,8 @@ X = array[:, 0:10]
 y = array[:, 10]
 X_train, X_validation, Y_train, Y_validation = train_test_split(X, y, test_size=0.20, random_state=1)
 
-model = DecisionTreeClassifier()
-name = "CART"
+model = LinearDiscriminantAnalysis()
+name = "LDA"
 
 #Training and Model Fit
 start_time = time.time()
@@ -46,6 +46,7 @@ model.fit(X, y)
 end_time = time.time()
 elapsed_time = end_time - start_time
 print(f"Model Fit time: {elapsed_time:.2f} seconds")
+
 
 # Initialize cumulative variables
 overall_accuracy = []

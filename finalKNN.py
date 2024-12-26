@@ -18,7 +18,7 @@ from sklearn.naive_bayes import GaussianNB
 from sklearn.svm import SVC
 
 # Load dataset
-url = "MoldDataset30868.csv"
+url = "Dataset/MoldDataset30868.csv"
 names = ['area', 'major-axis-length', 'minor-axis-length', 'eccentricity', 'filled-area', 'extent', 'perimeter', 'equiv-diameter', 'convex-area', 'solidity', 'class']
 dataset = read_csv(url, names=names)
 
